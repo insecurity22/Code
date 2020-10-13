@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    margin: 20px;
+}
+
+/* list.php */
+h1 {
+    padding-bottom: 25px;
+}
+
+.board_list {
+    width: 1020px;
+}
+
+.board_list p {
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.list_table {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-top: 2px solid #09C;
+    border-bottom: 2px solid #09C;
+}
+
+.list_table thead th {
+    width: 200px;
+    height: 40px;
+    padding-bottom: 10px;
+}
+
+/* 번호, 제목, 글쓴이, 작성일, 조회수 */
+.list_table thead th:first-child {
+    width: 70px;
+}
+.list_table thead th:nth-child(2) {
+    width: 500px;
+}
+.list_table thead th:nth-child(3) {
+    width: 180px;
+}
+.list_table thead th:nth-child(4) {
+    width: 170px;
+}
+.list_table thead th:last-child {
+    width: 100px;
+}
+
+.list_table tbody td {
+    text-align: center;
+    padding-top: 8px;
+}
+
+.list_table a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 검색 */
+#list_search {
+    margin-top: 15px;
+}
+
+#left {
+    float: left;
+}
+
+#right { 
+    float: right;
+}
+
+/* write.php */
+#board_write {
+    width: 730px;
+}
+
+#board_write p {
+    margin-bottom: 20px;
+    padding: 2px;
+    text-align: center;
+    background-color: #CCCCCC;
+}
+
+#board_write table {
+    margin: 10px;
+    border-collapse: collapse;
+}
+
+#board_write tr td {
+    padding: 7px;
+    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.center {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* view.php */
+.view_table, .update_table {
+    border-collapse: collapse;
+    border-top: 1px solid #949494;
+}
+
+.view_table thead td, .update_table thead td {
+    width: 800px;
+    padding: 4px;
+    color: white;
+    text-align: center;
+}
+
+.view_table thead td {
+    background-color: #CCCCCC;
+}
+
+#view_color, .view_table thead td, .update_table thead td, .update_table tbody {
+    border-left: 1px solid #949494;
+    border-right: 1px solid #949494;
+}
+
+#view_color td:nth-child(2n+1) {
+    width: 180px;
+    background-color: #EFEFEF;
+    text-align: center;
+}
+
+#view_color td:nth-child(2n) {
+    padding: 5px;
+}
+
+#view_content td {
+    height: 500px;
+    padding: 10px;
+    vertical-align: top;
+}
+
+#view_content {
+    border: 1px solid #949494;
+}
+
+#view_link td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* update.php */
+.board_update {
+    width: 800px;
+}
+
+.update_table {
+    border: 1px solid #9A9A9A;
+}
+
+.update_table thead td {
+    background-color: #9A9A9A;    
+}
+
+.update_table tbody th {
+    padding: 10px;
+    background-color: #CCCCCC;
+}
+
+.update_table tbody td {
+    padding-left: 10px;
+}
+
+
+.update_table button {
+    padding: 2px 5px 2px 5px;
+}
+
+/* passwd_form.php */
+.board_passwd_form {
+    width: 450px;
+    border-bottom: 1px solid #949494;
+}
+
+.passwd_form_table {
+    width: 450px;
+    border-top: 1px solid #949494;
+    border-collapse: collapse;
+}
+
+.passwd_form_table th {
+    background-color: #CCCCCC;
+    border-bottom: 1px solid #949494;
+}
+
+.passwd_form_table th {
+    padding: 10px;
+}
+
+.passwd_form_table td:first-child {
+    width: 150px;
+    padding: 20px 20px 5px 20px;
+    text-align: center;
+}
+
+.passwd_form_table td:last-child {
+    padding: 20px 20px 5px 0;
+}
+
+.board_passwd_form button {
+    padding: 1px 5px 1px 5px;
+}
