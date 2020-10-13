@@ -6,7 +6,7 @@
 
 2. 로그인
 
-![ex_screenshot](./img/login.png)
+![ex_screenshot](./img/login.PNG)
 
 1) 아이디 중복 체크
 
