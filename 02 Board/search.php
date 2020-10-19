@@ -125,10 +125,22 @@
                     </form>
                 </div>
 
-                <div id="right">
-                    <a href="write.php"><button>글쓰기<button></a>
-                    <a href="list.php?page=1"><button>목록보기<button></a>
-                </div>
+                <?php
+                    if(isset($_SESSION['user_id'])) {
+                        echo("
+                            <div id='right'>
+                                <a href='write.php'><button>글쓰기<button></a>
+                                <a href='list.php?page=1'><button>목록보기<button></a>
+                            </div>
+                        ");
+                    } else { 
+                        echo("
+                            <div id='right'>
+                                <a href='list.php?page=1'><button>목록보기<button></a>
+                            </div>
+                        ");
+                    }
+                ?>
             </div>
         </div>
     <div>
