@@ -18,7 +18,6 @@ localhost/projectname/list.php
 	1) http://localhost/phpmyadmin/index.php
 	2) 왼쪽 new - 
 
-
 ```
 
 
