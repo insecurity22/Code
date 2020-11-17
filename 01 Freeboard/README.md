@@ -28,7 +28,7 @@
 
 
 
-6. 글 수정
+6. 글 
 
 ![ex_screenshot](./img/freeboard_write.PNG)
 
