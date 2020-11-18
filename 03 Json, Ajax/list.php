@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" type="text/css">
-    <script src="js/jquery-3.5.1.min.js"></script>
     <script>
 
         function logout() {
@@ -20,7 +19,7 @@
                     switch(data[1].returnValue) {
                         case 1:
                             alert("로그아웃 되었습니다.");
-                            location.replace("<?php echo 'list.php?page=1' ?>");
+                            location.replace("<?php echo 'list.php' ?>");
                             break;
                         case 2:
                             alert("Logout fail.");
@@ -70,14 +69,14 @@
                                         <a href='javascript:void(0);' onclick='logout()'>LOGOUT</a>\
                                        </div>");
                     $('#right').append("<a href='write.php'><button>글쓰기<button></a>\
-                                            <a href='list.php?page=1'><button>목록보기<button></a>");
+                                            <a href='list.php'><button>목록보기<button></a>");
                 <?php
                     } else {
                 ?>
                     $('.logo').append("<div class='loginout_btn'>\
                                         <a href='login.php'>LOGIN</a>\
                                         </div>");
-                    $('#right').append("<a href='list.php?page=1'><button>목록보기<button></a>");
+                    $('#right').append("<a href='list.php'><button>목록보기<button></a>");
                 <?php
                     }
                 ?>
@@ -170,5 +169,6 @@
             </div>
         </div>
     <div>
+    <script src="js/jquery-3.5.1.min.js"></script>
 </body>
 </html>

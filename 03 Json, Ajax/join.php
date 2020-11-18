@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/login.css" type="text/css">
-    <script src="js/jquery-3.5.1.min.js"></script>
     <script>
 
         function validateEmail(email) {
@@ -169,5 +168,6 @@
             <button onclick="reset_form()">다시쓰기</button>
         </div>
     </div>
+    <script src="js/jquery-3.5.1.min.js"></script>
 </body>
 </html>

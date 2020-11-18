@@ -4,6 +4,10 @@
 
     mysqli_set_charset($conn, "utf8");
 
+    $board_result = array();
+    $paging_result = array();
+    $add_result = array();
+
     // ---------------- list.php
     if($_GET['requestValue'] === "list") {
         header('Content-Type: application/json');
@@ -17,9 +21,11 @@
         header('Content-Type: application/json');
         $find = $_GET['find'];
         $search = $_GET['search'];
+        $currentPage = $_GET['page'];
 
         $sql = "select * from board where $find like '%$search%' order by num desc";
         
+        array_push($add_result, array('find'=>$find, 'search'=>$search));
     }
 
     // ---------------- view.php
@@ -60,9 +66,6 @@
     $result = mysqli_query($conn, $sql);
 
     // 페이징
-    $board_result = array();
-    $paging_result = array();
-        
     $pageTotal = mysqli_num_rows($result); // 게시판 총 글 수
     $pageNum = 5; // 한 페이지에 보여줄 개수
     $count = 0; // 한 페이지에 실제로 보여줄 데이터 개수
@@ -96,7 +99,7 @@
     array_push($paging_result, array('pageTotal'=>$pageTotal, 'pageNum'=>$pageNum, 'total_page'=>$total_page, 'currentPage'=>$currentPage, 'count'=>$count));
 
     // 배열 형식의 결과를 json으로 변환
-    echo json_encode(array("content"=>$board_result, "paging"=>$paging_result), JSON_PRETTY_PRINT); // JSON_UNESCAPED_UNICODE
+    echo json_encode(array("content"=>$board_result, "paging"=>$paging_result, "add"=>$add_result), JSON_PRETTY_PRINT); // JSON_UNESCAPED_UNICODE
 
     // DB 접속 종료
     mysqli_close($conn);

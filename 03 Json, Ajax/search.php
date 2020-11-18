@@ -5,44 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" type="text/css">
-    <script src="js/jquery-3.5.1.min.js"></script>
     <script>
-        $.ajax({
-            type: 'GET',
-            url: './json/return_boardjson.php',
-            data: {
-                requestValue: 'search',
-                find: <?php echo "\"".$_GET['find']."\"" ?>,
-                search: <?php echo "\"".$_GET['search']."\"" ?>  
-            },
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json'
-        })
-        .done(function(data) {
-  
-            // 1. 전체 건수 출력
-            $('.board_list > p').append("전체 " + data.paging[0].pageTotal + "건");
+        
+        var nowPage = 1;
+        function search(page) {
 
-            // 2. 해당하는 페이지 목록 보여줌
-            for($i=0; $i<data.paging[0].count; $i++) {
-                $appenddata = "<tr><td>" + data.content[$i].num + "</td>"
-                                + "<td><a href='view.php?num=" + data.content[$i].num + "&page=" + data.paging[0].currentPage + "'>" + data.content[$i].title + "</a></td>"
-                                + "<td>" + data.content[$i].name + "</td>"
-                                + "<td>" + data.content[$i].date + "</td>"
-                                + "<td>" + data.content[$i].hit + "</td></tr>"
-                $(".list_table > tbody").append($appenddata);
-            }
+            if(page === undefined) page = nowPage;
 
-            // 3. 게시판 목록 하단에 페이지 링크 번호 출력
-            for($i=1; $i<=data.paging[0].total_page; $i++) {
-                if(data.paging[0].currentPage == $i) { // 현재 페이지
-                    $('.center').append("<font color='black'><b>[" + $i + "]</b></font>");
-                } else { // 다른 페이지 버튼 눌렀을 때
-                    $('.center').append("<a href='list.php?page=" + $i + "' style='text-decoration: none;'><font color='gray'><b>[" + $i + "]</b></font></a>");
+            $.ajax({
+                type: 'GET',
+                url: './json/return_boardjsonGET.php',
+                data: {
+                    requestValue: 'search',
+                    find: <?php echo "\"".$_GET['find']."\"" ?>,
+                    search: <?php echo "\"".$_GET['search']."\"" ?>,
+                    page: page
+                },
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json'
+            })
+            .done(function(data) {
+    
+                // 1. 전체 건수 출력
+                $('.board_list > p').empty();
+                $('.board_list > p').append("전체 " + data.paging[0].pageTotal + "건");
+
+                // 2. 해당하는 페이지 목록 보여줌
+                $('.list_table > tbody').empty();
+                for($i=0; $i<data.paging[0].count; $i++) {
+                    $appenddata = "<tr><td>" + data.content[$i].num + "</td>"
+                                    + "<td><a href='view.php?num=" + data.content[$i].num + "&page=" + data.paging[0].currentPage + "'>" + data.content[$i].title + "</a></td>"
+                                    + "<td>" + data.content[$i].name + "</td>"
+                                    + "<td>" + data.content[$i].date + "</td>"
+                                    + "<td>" + data.content[$i].hit + "</td></tr>"
+                    $(".list_table > tbody").append($appenddata);
                 }
-            }
-            
-        });
+
+                // 3. 게시판 목록 하단에 페이지 링크 번호 출력
+                $('.center').empty();
+                for($i=1; $i<=data.paging[0].total_page; $i++) {
+                    if(data.paging[0].currentPage == $i) { // 현재 페이지
+                        $('.center').append("<font color='black'><b>[" + $i + "]</b></font>");
+                    } else { // 다른 페이지 버튼 눌렀을 때
+                        $('.center').append("<a href='javascript:search(" + $i + ")' style='text-decoration: none;'><font color='gray'><b>[" + $i + "]</b></font></a>");
+              }
+                }
+                
+            });
+        }
+        
+        search();
+
     </script>
 </head>
 <body>
@@ -128,5 +141,6 @@
             </div>
         </div>
     <div>
+    <script src="js/jquery-3.5.1.min.js"></script>
 </body>
 </html>

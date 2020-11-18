@@ -8,7 +8,6 @@
         ");
     } else {
 ?>
-    <script src="js/jquery-3.5.1.min.js"></script>
     <script> 
         $.ajax({
             url: './json/return_memberjson.php',
@@ -34,6 +33,7 @@
             }
         });
     </script>
+    <script src="js/jquery-3.5.1.min.js"></script>
 <?php
     }
 ?>

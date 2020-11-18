@@ -15,7 +15,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" type="text/css">
-    <script src="js/jquery-3.5.1.min.js"></script>
     <script>
         
         var datasModify = { requestValue: "modify", "num": <?php echo "\"".$num."\"" ?> }; // 리스트 내용 가져오기
@@ -116,5 +115,6 @@
             <a href='list.php?page=1'><button>목록</button></a>
         </div>
     <div>
+    <script src="js/jquery-3.5.1.min.js"></script>
 </body>
 </html>
